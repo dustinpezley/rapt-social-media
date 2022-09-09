@@ -1,5 +1,4 @@
 # Rapt - Social Media API
-![License badge]()
 
 ## Description
 This is a demonstration of a simple back-end set up for a social media app utilizing NoSQL calls through MongoDB.
@@ -17,18 +16,12 @@ Running `npm i` in your terminal will install all dependencies.
 
 ## Usage
 While this is merely a demonstration, the functionality could be utilized in multiple places.
+![GIF](https://github.com/dustinpezley/rapt-social-media/blob/4063fe70744a473e2303633599017d6d4b2ffc1d/Rapt%20walkthrough.gif)
 
 
 ## Credits  
-
-
-Automattic(mongoose) [https://www.npmjs.com/package/mongoose](https://www.npmjs.com/package/mongoose)  ExpressJS [https://www.npmjs.com/package/express](https://www.npmjs.com/package/express)
-
-
-## License
-Licensed under the [undefined]() license.
-
-
+Automattic(mongoose) [https://www.npmjs.com/package/mongoose](https://www.npmjs.com/package/mongoose)  
+ExpressJS [https://www.npmjs.com/package/express](https://www.npmjs.com/package/express)
 
 
 ## Contributing
