@@ -35,7 +35,7 @@ const userController = {
 
   // post a new user
   createUser(req, res) {
-    User.create(body)
+    User.create(req.body)
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => res.status(500).json(err));
   },
@@ -44,7 +44,7 @@ const userController = {
   addFriend({ params }, res) {
     User.findOneAndUpdate(
       { _id: params.userId },
-      { $push: { friends: params.friendId } },
+      { $push: { friends: { _id: params.friendId } } },
       { new: true }
     )
       .then((dbUserData) => {
@@ -76,24 +76,24 @@ const userController = {
 
   // delete user by id
   removeUser({ params }, res) {
-    User.findOneAndDelete({ _id: params.id }),
-      then(Thought.deleteMany({ username: this.username }))
-        .then((dbUserData) => {
-          if (!dbUserData) {
-            res.status(404).json({ message: 'User not found' });
-            return;
-          }
+    User.findOneAndDelete({ _id: params.id })
+      .then(Thought.deleteMany({ username: this.username }))
+      .then((dbUserData) => {
+        if (!dbUserData) {
+          res.status(404).json({ message: 'User not found' });
+          return;
+        }
 
-          res.json(dbUserData);
-        })
-        .catch((err) => res.status(500).json(err));
+        res.json(dbUserData);
+      })
+      .catch((err) => res.status(500).json(err));
   },
 
   // delete friend from user's friends list
   removeFriend({ params }, res) {
     User.findOneAndUpdate(
       { _id: params.userId },
-      { $pull: { friends: { friendId: params.friendId } } },
+      { $pull: { friends: params.friendId } },
       { new: true }
     )
       .then((dbUserData) => {

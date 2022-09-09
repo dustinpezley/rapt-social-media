@@ -18,7 +18,7 @@ const thoughtController = {
   getThoughtById({ params }, res) {
     Thought.findOne({ _id: params.id })
       .populate({
-        pathh: 'reactions',
+        path: 'reactions',
         select: '-__v',
       })
       .select('-__v')
@@ -40,7 +40,7 @@ const thoughtController = {
     Thought.create(body)
       .then(({ _id }) => {
         return User.findOneAndUpdate(
-          { _id: body.userId },
+          { username: body.username },
           { $push: { thoughts: _id } },
           { new: true }
         );
@@ -101,6 +101,8 @@ const thoughtController = {
             .json({ message: 'Seems I have forgotten this thought' });
         }
 
+        let username = deletedThought[0].username;
+
         return User.findOneAndUpdate(
           { _id: params.userId },
           { $pull: { thoughts: params.thoughtId } },
@@ -119,7 +121,7 @@ const thoughtController = {
 
   // delete a reaction by id
   removeReaction({ params }, res) {
-    Thought.findOneAndDelete(
+    Thought.findOneAndUpdate(
       { _id: params.thoughtId },
       { $pull: { reactions: { reactionId: params.reactionId } } },
       { new: true }

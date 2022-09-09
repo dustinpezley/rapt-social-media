@@ -2,5 +2,25 @@
   "dependencies": {
     "express": "^4.18.1",
     "mongoose": "^6.5.4"
-  }
+  },
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seeds/seed.js",
+    "update-seed": "node seeds/update.js"
+  },
+  "name": "challenge-14-rapt-social-media-api",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dustinpezley/rapt-social-media.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dustinpezley/rapt-social-media/issues"
+  },
+  "homepage": "https://github.com/dustinpezley/rapt-social-media#readme"
 }
